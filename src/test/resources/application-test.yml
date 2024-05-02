@@ -1,0 +1,7 @@
+# used for integration test!
+spring:
+  active:
+    profile: test
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=testcontainer&password=postgres&user=postgres
+    platform: postgres
