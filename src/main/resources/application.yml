@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${POSTGRES_JDBC:jdbc:postgresql://localhost:5432/postgres?currentSchema=testcontainer&password=postgres&user=postgres}
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=testcontainer&password=postgres&user=postgres
     platform: postgres
 
   jpa:
