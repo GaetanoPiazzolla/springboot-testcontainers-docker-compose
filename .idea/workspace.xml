@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4edf36ff-8e87-4aae-b951-a7b4b7a9a81f" name="Changes" comment="First Implementation">
-      <change afterPath="$PROJECT_DIR$/src/test/java/gae/piaz/tc/controller/AbstractIntegrationTest.java" afterDir="false" />
+    <list default="true" id="4edf36ff-8e87-4aae-b951-a7b4b7a9a81f" name="Changes" comment="Simplifications">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gae/piaz/tc/domain/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gae/piaz/tc/domain/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gae/piaz/tc/SpringBootApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gae/piaz/tc/SpringBootApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gae/piaz/tc/config/CustomRestMvcConfiguration.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gae/piaz/tc/domain/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gae/piaz/tc/domain/PersonRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/gae/piaz/tc/config/TestContainerConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/gae/piaz/tc/controller/PersonCrudRepoIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/gae/piaz/tc/controller/PersonCrudRepoIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application-test.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +51,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="WARN_ABOUT_CRLF" value="false" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -68,6 +69,7 @@
     "Docker.test.liquibase-test: Compose Deployment.executor": "Run",
     "Docker.test: Compose Deployment.executor": "Run",
     "Gradle.PersonCrudRepoIntegrationTest.executor": "Run",
+    "Gradle.PersonCrudRepoIntegrationTest.savePerson.executor": "Run",
     "Gradle.testcontainers [:SpringBootApp.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -91,7 +93,7 @@
       <recent name="$PROJECT_DIR$/liquibase" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.PersonCrudRepoIntegrationTest">
+  <component name="RunManager" selected="Gradle.PersonCrudRepoIntegrationTest.savePerson">
     <configuration name="SpringBootApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="gae.piaz.tc.SpringBootApp" />
       <module name="testcontainers.main" />
@@ -129,15 +131,33 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+    <configuration name="PersonCrudRepoIntegrationTest.savePerson" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;gae.piaz.tc.controller.PersonCrudRepoIntegrationTest.savePerson&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="test: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="src/test/docker-compose.yml" />
-        </settings>
+        <settings />
       </deployment>
       <method v="2" />
     </configuration>
@@ -169,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PersonCrudRepoIntegrationTest.savePerson" />
         <item itemvalue="Gradle.PersonCrudRepoIntegrationTest" />
         <item itemvalue="Application.SpringBootApp" />
         <item itemvalue="Docker.test.liquibase-test: Compose Deployment" />
         <item itemvalue="Docker.test.db-service-test: Compose Deployment" />
-        <item itemvalue="Docker.test: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -201,11 +221,31 @@
       <option name="project" value="LOCAL" />
       <updated>1714675963837</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Simplifications">
+      <option name="closed" value="true" />
+      <created>1714722907304</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714722907304</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Implementation" />
+    <MESSAGE value="Simplifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplifications" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gae/piaz/tc/config/CustomRestMvcConfiguration.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

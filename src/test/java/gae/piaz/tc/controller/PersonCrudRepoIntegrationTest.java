@@ -6,13 +6,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.Optional;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 
 public class PersonCrudRepoIntegrationTest extends AbstractIntegrationTest {
 
@@ -26,11 +24,11 @@ public class PersonCrudRepoIntegrationTest extends AbstractIntegrationTest {
                 .email("john.doe@gmail.com")
                 .age(25).build();
 
-        MvcResult result = mockMvc.perform(
-                MockMvcRequestBuilders.post("/repository/person")
+        mockMvc.perform(
+                MockMvcRequestBuilders.post("/person")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(person))
-        ).andExpect(status().isCreated()).andReturn();
+        ).andExpect(status().isCreated());
 
         // check data in repository
         Optional<Person> personInRepo = personRepository.findByEmail(person.getEmail());
